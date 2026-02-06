@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Written in the Stars 🌌</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+<style>
+body{
+  margin:0;
+  height:100vh;
+  background:radial-gradient(circle at top,#1a1d3b,#050816);
+  color:#fff;
+  font-family:'Poppins',sans-serif;
+  overflow:hidden;
+}
+
+/* Canvas */
+canvas{
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:1;
+}
+
+/* Story content */
+.story{
+  position:relative;
+  z-index:2;
+  height:100vh;
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  padding:30px;
+}
+
+h1{
+  font-weight:400;
+  line-height:1.6;
+}
+
+/* Final message */
+small{
+  display:block;
+  margin-top:12px;
+  font-size:16px;
+  opacity:0.85;
+}
+
+/* Progress bar */
+.progress{
+  position:fixed;
+  top:10px;
+  width:100%;
+  display:flex;
+  padding:0 10px;
+  z-index:3;
+}
+
+.bar{
+  flex:1;
+  height:3px;
+  margin:3px;
+  background:#ff6b9a;
+  opacity:.3;
+}
+
+.bar.active{
+  opacity:1;
+}
+</style>
+</head>
+
+<body>
+
+<!-- ⭐ Rose Constellation Canvas -->
+<canvas id="stars"></canvas>
+
+<!-- 📱 Progress -->
+<div class="progress">
+  <div class="bar active"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+  <div class="bar"></div>
+</div>
+
+<!-- 💖 Story -->
+<div class="story">
+  <h1 id="text"></h1>
+</div>
+
+<script>
+/* ---------------- STORY TEXT ---------------- */
+const slides = [
+  "Some nights feel different… 🌙",
+  "The night I met you,\nthe sky learned your name ✨",
+  "It whispered it softly — Dishu 🌌",
+  "So the stars shaped a rose,\ntrying to explain how I feel 🌹"
+];
+
+let index = 0;
+let char = 0;
+const textEl = document.getElementById("text");
+
+/* Typing effect */
+function typeEffect(){
+  if(char < slides[index].length){
+    const letter = slides[index].charAt(char);
+    textEl.innerHTML += letter === "\n" ? "<br>" : letter;
+    char++;
+    setTimeout(typeEffect, 70);
+  }
+}
+
+/* Next slide */
+function nextSlide(){
+  if(index < slides.length - 1){
+    index++;
+    char = 0;
+    textEl.innerHTML = "";
+    document.querySelectorAll(".bar")[index].classList.add("active");
+
+    if(slides[index] === "FINAL"){
+      textEl.innerHTML = `
+        Happy Rose Day, Dishu ❤️<br>
+        <small>This rose blooms only where my heart is — with you.</small>
+      `;
+    } else {
+      typeEffect();
+    }
+  }
+}
+
+/* Click (desktop) */
+document.addEventListener("click", nextSlide);
+
+/* Swipe (mobile) */
+let startX = 0;
+document.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+});
+document.addEventListener("touchend", e => {
+  if(startX - e.changedTouches[0].clientX > 40){
+    nextSlide();
+  }
+});
+
+/* Start first slide */
+typeEffect();
+
+/* ---------------- ROSE CONSTELLATION ---------------- */
+const canvas = document.getElementById("stars");
+const ctx = canvas.getContext("2d");
+
+canvas.width = window.innerWidth;
+canvas.height = window.innerHeight;
+
+const rosePoints = [
+  {x:0.5,y:0.18},{x:0.6,y:0.28},{x:0.65,y:0.42},
+  {x:0.6,y:0.58},{x:0.5,y:0.68},{x:0.4,y:0.58},
+  {x:0.35,y:0.42},{x:0.4,y:0.28},{x:0.5,y:0.18}
+];
+
+let drawIndex = 0;
+
+function drawRose(){
+  ctx.clearRect(0,0,canvas.width,canvas.height);
+  ctx.strokeStyle = "rgba(255,107,154,0.8)";
+  ctx.lineWidth = 1.5;
+  ctx.beginPath();
+
+  for(let i=0;i<drawIndex;i++){
+    const p = rosePoints[i];
+    const x = p.x * canvas.width;
+    const y = p.y * canvas.height;
+
+    if(i === 0) ctx.moveTo(x,y);
+    else ctx.lineTo(x,y);
+
+    ctx.fillStyle = "#fff";
+    ctx.beginPath();
+    ctx.arc(x,y,2,0,Math.PI*2);
+    ctx.fill();
+  }
+  ctx.stroke();
+
+  if(drawIndex < rosePoints.length){
+    drawIndex++;
+    setTimeout(drawRose,300);
+  }
+}
+
+drawRose();
+</script>
+
+<!-- 🎶 Background Music -->
+<audio autoplay loop>
+  <source src="romantic.mp3" type="audio/mpeg">
+</audio>
+
+</body>
+</html>
