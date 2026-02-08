@@ -1,70 +1,180 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <title>A Secret Rose 🌹</title>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-  <style>
-    body{
-      margin:0;
-      height:100vh;
-      background:radial-gradient(circle at top,#1b1f4b,#050816);
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      font-family:'Poppins',sans-serif;
-      color:#fff;
-      text-align:center;
-    }
-    .box{
-      width:320px;
-      animation:fadeIn 2s ease;
-    }
-    h2{font-weight:400;}
-    p{opacity:.8;font-size:14px;}
-    input{
-      width:100%;
-      padding:12px;
-      margin-top:15px;
-      border-radius:25px;
-      border:none;
-      outline:none;
-      text-align:center;
-    }
-    button{
-      width:100%;
-      margin-top:15px;
-      padding:12px;
-      border-radius:25px;
-      border:none;
-      background:#ff6b9a;
-      color:#fff;
-      font-size:15px;
-      cursor:pointer;
-    }
-    @keyframes fadeIn{
-      from{opacity:0;transform:translateY(20px);}
-      to{opacity:1;transform:translateY(0);}
-    }
-  </style>
+<meta charset="UTF-8">
+<title>For Dishu ❤️</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Segoe UI',sans-serif;}
+body{background:black;color:white;overflow:hidden;}
+
+/* 🎥 CINEMATIC INTRO */
+.intro{
+  position:fixed;inset:0;background:black;
+  display:flex;align-items:center;justify-content:center;
+  font-size:2rem;letter-spacing:2px;z-index:999;
+  animation:introFade 4s forwards;
+}
+@keyframes introFade{
+  0%,70%{opacity:1}
+  100%{opacity:0;visibility:hidden}
+}
+
+/* 🌌 STAR SKY */
+.stars{
+  position:fixed;inset:0;z-index:-3;
+  background:
+    radial-gradient(1px 1px at 10% 20%, white, transparent),
+    radial-gradient(1px 1px at 30% 80%, white, transparent),
+    radial-gradient(1px 1px at 50% 40%, white, transparent),
+    radial-gradient(1px 1px at 70% 70%, white, transparent),
+    radial-gradient(1px 1px at 90% 30%, white, transparent);
+  animation:twinkle 4s infinite alternate;
+}
+@keyframes twinkle{from{opacity:.4}to{opacity:1}}
+
+/* 🌠 CONSTELLATION (FULL DISHU + HEARTBEAT) */
+.constellation{
+  position:fixed;inset:0;z-index:-2;
+  animation:drift 120s linear infinite, heartbeat 1.2s infinite;
+}
+.star{
+  position:absolute;width:4px;height:4px;
+  background:white;border-radius:50%;
+  box-shadow:0 0 14px rgba(255,255,255,.9);
+}
+.line{
+  position:absolute;height:1px;
+  background:rgba(255,255,255,.6);
+}
+@keyframes drift{to{transform:translateX(-200px)}}
+@keyframes heartbeat{
+  0%,100%{transform:scale(1)}
+  50%{transform:scale(1.06)}
+}
+
+/* 💖 CARD */
+.story{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:16px}
+.card{
+  width:100%;max-width:420px;text-align:center;
+  padding:26px 22px;border-radius:24px;
+  background:linear-gradient(to bottom,rgba(0,0,0,.35),rgba(0,0,0,.9));
+}
+h1{font-size:clamp(1.8rem,5vw,2.4rem)}
+p{font-size:clamp(1rem,4vw,1.25rem);line-height:1.6}
+
+.heart{
+  font-size:4.8rem;margin:22px 0;
+  animation:heartbeat 1.2s infinite;
+}
+
+/* BUTTONS */
+button{
+  width:100%;max-width:260px;padding:14px;
+  margin:10px auto 0;border:none;border-radius:30px;
+  font-size:1.05rem;cursor:pointer;
+}
+.yes{background:white;color:#ff4d6d}
+.voice{background:#ff4d6d;color:white}
+#result{margin-top:14px;font-size:1.15rem;font-weight:bold}
+
+/* 💫 SHOOTING STAR */
+.shoot{
+  position:absolute;width:80px;height:2px;
+  background:linear-gradient(to right,white,transparent);
+  animation:shoot 1s linear forwards;
+}
+@keyframes shoot{to{transform:translate(300px,300px);opacity:0}}
+</style>
 </head>
+
 <body>
 
-  <div class="box">
-    <h2>Not every rose is meant to be seen 🌙</h2>
-    <p>This one is meant to be felt</p>
+<div class="intro">Written in the stars… ✨</div>
+<div class="stars"></div>
 
-    <input type="password" id="password" placeholder="Only Dishu knows">
-    <button onclick="unlock()">Enter ✨</button>
+<!-- 🌠 FULL DISHU CONSTELLATION -->
+<div class="constellation">
+
+  <!-- D -->
+  <div class="star" style="top:25%;left:10%"></div>
+  <div class="star" style="top:35%;left:10%"></div>
+  <div class="star" style="top:45%;left:10%"></div>
+  <div class="star" style="top:30%;left:15%"></div>
+  <div class="star" style="top:40%;left:15%"></div>
+  <div class="line" style="top:35%;left:10%;width:80px"></div>
+
+  <!-- I -->
+  <div class="star" style="top:25%;left:25%"></div>
+  <div class="star" style="top:35%;left:25%"></div>
+  <div class="star" style="top:45%;left:25%"></div>
+  <div class="line" style="top:35%;left:25%;width:40px"></div>
+
+  <!-- S -->
+  <div class="star" style="top:25%;left:35%"></div>
+  <div class="star" style="top:35%;left:33%"></div>
+  <div class="star" style="top:45%;left:35%"></div>
+  <div class="star" style="top:55%;left:33%"></div>
+  <div class="star" style="top:65%;left:35%"></div>
+  <div class="line" style="top:45%;left:33%;width:60px"></div>
+
+  <!-- H -->
+  <div class="star" style="top:30%;left:45%"></div>
+  <div class="star" style="top:40%;left:45%"></div>
+  <div class="star" style="top:50%;left:45%"></div>
+  <div class="star" style="top:40%;left:50%"></div>
+  <div class="line" style="top:40%;left:45%;width:50px"></div>
+
+  <!-- U -->
+  <div class="star" style="top:30%;left:60%"></div>
+  <div class="star" style="top:40%;left:60%"></div>
+  <div class="star" style="top:50%;left:60%"></div>
+  <div class="star" style="top:55%;left:65%"></div>
+  <div class="star" style="top:50%;left:70%"></div>
+  <div class="star" style="top:40%;left:70%"></div>
+  <div class="line" style="top:55%;left:60%;width:90px"></div>
+
+</div>
+
+<!-- 🎶 MUSIC -->
+<audio autoplay loop>
+  <source src="https://cdn.pixabay.com/audio/2022/03/15/audio_5f6b4c1d8a.mp3">
+</audio>
+
+<!-- 🗣️ VOICE -->
+<audio id="voice">
+  <source src="https://cdn.pixabay.com/audio/2023/03/16/audio_5c6a5b7e3f.mp3">
+</audio>
+
+<div class="story" onclick="shootStar(event)">
+  <div class="card">
+    <h1>Happy Propose Day 💍</h1>
+    <div class="heart">❤️</div>
+    <p>
+      Dishu,<br><br>
+      The universe spells your name 🌌<br><br>
+      <b>Will you be mine forever?</b>
+    </p>
+
+    <button class="yes" onclick="yes()">YES 💍</button>
+    <button class="voice" onclick="playVoice()">🗣️ I love you Dishu</button>
+    <div id="result"></div>
   </div>
+</div>
 
 <script>
-function unlock(){
-  if(password.value === "dishu"){
-    window.location.href = "story.html";
-  } else {
-    alert("This rose is still waiting for the right heart 🌑");
-  }
+function yes(){
+  document.getElementById("result").innerHTML =
+    "💖 Shubham & Dishu — Forever ♾️✨";
+}
+function playVoice(){document.getElementById("voice").play();}
+function shootStar(e){
+  const x=e.touches?e.touches[0].clientX:e.clientX;
+  const y=e.touches?e.touches[0].clientY:e.clientY;
+  const s=document.createElement("div");
+  s.className="shoot";s.style.left=x+"px";s.style.top=y+"px";
+  document.body.appendChild(s);setTimeout(()=>s.remove(),1000);
 }
 </script>
 
