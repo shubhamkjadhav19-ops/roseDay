@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Teddy Day for Dishu 🧸❤️</title>
+<title>Promise Day for Dishu 💍❤️</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
@@ -34,19 +34,10 @@ body{background:black;color:white;overflow:hidden;}
 }
 @keyframes twinkle{from{opacity:.4}to{opacity:1}}
 
-/* 🌠 CONSTELLATION (DISHU) */
+/* 🌠 CONSTELLATION */
 .constellation{
   position:fixed;inset:0;z-index:-2;
   animation:drift 120s linear infinite, heartbeat 1.2s infinite;
-}
-.star{
-  position:absolute;width:4px;height:4px;
-  background:white;border-radius:50%;
-  box-shadow:0 0 14px rgba(255,255,255,.9);
-}
-.line{
-  position:absolute;height:1px;
-  background:rgba(255,255,255,.6);
 }
 @keyframes drift{to{transform:translateX(-200px)}}
 @keyframes heartbeat{
@@ -54,7 +45,7 @@ body{background:black;color:white;overflow:hidden;}
   50%{transform:scale(1.06)}
 }
 
-/* 🧸 STORY CARD */
+/* 💍 STORY CARD */
 .story{
   min-height:100vh;
   display:flex;
@@ -70,23 +61,23 @@ body{background:black;color:white;overflow:hidden;}
   border-radius:24px;
   background:linear-gradient(
     to bottom,
-    rgba(180,120,80,.35),
-    rgba(60,35,20,.95)
+    rgba(255,182,193,.3),
+    rgba(75,0,130,.95)
   );
-  box-shadow:0 0 30px rgba(255,182,193,.3);
+  box-shadow:0 0 30px rgba(255,105,180,.4);
 }
 
 h1{font-size:clamp(1.8rem,5vw,2.4rem)}
 p{font-size:clamp(1rem,4vw,1.25rem);line-height:1.6}
 
-.heart{
+.ring{
   font-size:4.8rem;
   margin:22px 0;
   animation:heartbeat 1.2s infinite;
   filter:drop-shadow(0 0 14px rgba(255,182,193,.9));
 }
 
-/* 🧸 BUTTONS */
+/* 💍 BUTTONS */
 button{
   width:100%;
   max-width:260px;
@@ -97,8 +88,8 @@ button{
   font-size:1.05rem;
   cursor:pointer;
 }
-.yes{background:#ffb6c1;color:#4b2e2e}
-.voice{background:#8b5a2b;color:white}
+.yes{background:#ff69b4;color:white}
+.voice{background:#4b0082;color:white}
 
 #result{
   margin-top:14px;
@@ -123,14 +114,9 @@ button{
 <body>
 
 <!-- 🎥 INTRO -->
-<div class="intro">A little teddy… a lot of love 🧸✨</div>
+<div class="intro">A promise made under the stars 💫💍</div>
 
 <div class="stars"></div>
-
-<!-- 🌠 DISHU CONSTELLATION -->
-<div class="constellation">
-  <!-- (same DISHU stars as before – unchanged) -->
-</div>
 
 <!-- 🎶 MUSIC -->
 <audio autoplay loop>
@@ -142,23 +128,26 @@ button{
   <source src="https://cdn.pixabay.com/audio/2023/03/16/audio_5c6a5b7e3f.mp3">
 </audio>
 
-<!-- 🧸 STORY -->
+<!-- 💍 STORY -->
 <div class="story" onclick="shootStar(event)">
   <div class="card">
-    <h1>Happy Teddy Day 🧸❤️</h1>
-    <div class="heart">🧸</div>
+    <h1>Happy Promise Day 💍❤️</h1>
+    <div class="ring">💍</div>
 
     <p>
       Dishu ❤️<br><br>
-      Like this teddy,<br>
-      I promise to hold you close,<br>
-      protect you gently,<br>
-      and stay with you always ✨<br><br>
-      <b>Will you be my forever cuddle?</b>
+      Today, under these stars,<br>
+      I promise to stand by you,<br>
+      support your dreams,<br>
+      wipe your tears,<br>
+      and protect your smile ✨<br><br>
+      No matter what comes,<br>
+      my heart will always choose you 💞<br><br>
+      <b>Will you trust my forever promise?</b>
     </p>
 
-    <button class="yes" onclick="yes()">YES 🧸❤️</button>
-    <button class="voice" onclick="playVoice()">🗣️ Listen to my heart</button>
+    <button class="yes" onclick="yes()">I TRUST YOU 💖</button>
+    <button class="voice" onclick="playVoice()">🗣️ Hear My Promise</button>
     <div id="result"></div>
   </div>
 </div>
@@ -166,7 +155,7 @@ button{
 <script>
 function yes(){
   document.getElementById("result").innerHTML =
-    "🧸 Shubham & Dishu — Cuddled Forever ♾️❤️";
+    "💍 Shubham & Dishu — Promised Forever ♾️❤️";
 }
 function playVoice(){
   document.getElementById("voice").play();
